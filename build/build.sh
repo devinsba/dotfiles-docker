@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo ls -l /var/lib/docker
+echo -n "I'm a little teapot"
