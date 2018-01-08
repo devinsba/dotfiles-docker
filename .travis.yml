@@ -1,8 +1,17 @@
 sudo: required
 
+language: python
+python:
+- "3.6"
+
 before_install:
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y install docker-ce
-  - docker pull debian:latest
+- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+- sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+- sudo apt-get update
+- sudo apt-get -y install docker-ce
+- docker pull debian:latest
+
+env:
+  global:
+  - secure: 3wl74KUYREH0UKGe1NTubVBy0olg4DgJB0xY/OjLFLVIicKYyw3TaW6R+KKdSukMti3hbPKVo7GCOm57iE9wp2Y/r1kH0tktzjDBnc9fcjvgvbP1GW7+OJBUvJam95vZ8Fr8I7ZQc3Q4BFPnw3HPnmGV5o/fxrwxYKAKhp1ULI24N9kyqhJ3cUgqOK2OnR5YrnOCjFm350vZ8i0fLQWrabwho6WR4mrmkF9oNMyM7Hiz78nEyBMCACiKlPJE7DEKBdfkZtF24FBqcDeEPruHgczrjvt8SFxacuU7LRlvaXQGM7/ovTLe7A1FRZNHFqQhfQl7ouAQAkIJIl3xS8qYkyx4FAPoUzhqD/DteGfkkHYiiJXL3JXQUxe7tIcDMjjliw+ml/THFFzjlmzEHPCGfsr6y2iOAQASv91dqSL0HtqDnIUFGRmGwIN7+ramvng0Wq1nEnpVJUnfq33kn+tvdM9Pdi7U8Aju4gCci6tr96CfIX/xzvRNqp15kLrl+FXz2Z5jyaLQ3j4W7RDp9rn6qALiN184KNWlA2V/CVruPPwIwEbVc4amMKzGastjpsGj9Azd+kySJDCRaf90OG/Qmoz0Vr/qR80Of/+Yf9VW3NsXB6+m8TZNILsMfnkffKOFScUMh+2db+YhRl2kYNvMA3lQqPvBV5Z77Glw+9HOx4s=
+  - secure: qo8Lg/XmY4YTugKPFRR3HQLstb+y7SFszHdGE/t6IkSSqZbrUkD/haApxwHcNkdPiciqteV0uQ71yMcBSxXFOuIEth0UJXmasH5/mj06z3gg2YPssMJ/RyjGWv2MKspfaezrX0ThraLa0qZ0ypdpfH+pRvw7JkgssFtA7NIRv7+BDY9W3OWTyOsTCzDx7Z48+wDVq/MTFVjU/8tX1yRl2nCIU9Zmj2zqmQqbAWqTPSpEdK/TKDf2Qp2NWNJ9RpBzY5WGjTX7Kg6UPWYTtyklGh0RAMlnYs7djzzhKvJiQe19U759Ev5ApK07/T0d+oC2T3lionK8WvI+sjpWiL7nrjF9ek51oluyDN7KtIrB6B42S79BzkiAVhXoxi1J0Vir1Io65QfPZl8WdeSWcnTKpObQQkQymeV3C49Havcv5gAg6bHtvpph1m94cdbhMfIpof9HCykpo6dh71jiv+r7QBhctR60SWrrfC0iPrVl0SWRbI92XAfeKC/YrYypaRgOLeO0YnkL9s/Od2sCZ9ML1h+miYDXGjreJ6cBXtL9G05v2Adu5L5tZfiijac9L60Ibyp+moOOnyxHYsi6S5rvNPsV8aG16ZQ0CrXO5UNA6vYCkAVn9R/yVQ27LMMacZzEBpkAHyTf5mkh7or91SuZyYrpG1EvkdepKStg3TsxRvQ=
