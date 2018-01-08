@@ -12,10 +12,10 @@ before_install:
 - docker pull debian:latest
 
 script:
-- ./build.sh
+- ./build/build.sh
 
 after_success:
-- ./on_success.sh
+- ./build/on_success.sh
 
 cache:
   directories:
