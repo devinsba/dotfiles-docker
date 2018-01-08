@@ -12,7 +12,7 @@ before_install:
 - docker pull debian:latest
 
 script:
-- ls -l /var/lib/docker
+- sudo ls -l /var/lib/docker
 
 after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then
