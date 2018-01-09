@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-echo -n "I'm a little teapot"
+env
+git clone https://github.com/devinsba/dotfiles-completion ./build/dotfiles-completion
