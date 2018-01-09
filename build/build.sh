@@ -13,7 +13,7 @@ touch $COMPLETION/test
 
 (cd $COMPLETION && git status)
 
-if [ -z "$(git status --porcelain)" ]; then
+if [ ! -z "$(git status --porcelain)" ]; then
     cd $COMPLETION
     setup_git
     git add .
