@@ -5,9 +5,11 @@ setup_git() {
   git config --global user.name "Travis CI"
 }
 
-COMPLETION=${TRAVIS_BUILD_DIR}/build/dotfiles-completion
+export COMPLETION=${TRAVIS_BUILD_DIR}/build/dotfiles-completion
 
 git clone https://${GH_TOKEN}@github.com/devinsba/dotfiles-completion $COMPLETION
+
+touch $COMPLETION/test
 
 if [ -z "$(git status --porcelain)" ]; then
     cd $COMPLETION
