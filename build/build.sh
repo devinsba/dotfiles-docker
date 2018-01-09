@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+(
+    . ${TRAVIS_BUILD_DIR}/build/docker.shlib
+    build_images
+)
+
+
 export COMPLETION=${TRAVIS_BUILD_DIR}/build/dotfiles-completion
 
 git clone https://${GH_TOKEN}@github.com/devinsba/dotfiles-completion $COMPLETION

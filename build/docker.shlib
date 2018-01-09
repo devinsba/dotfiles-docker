@@ -1,0 +1,40 @@
+function _get_dockerfile_image_name() {
+    name=$(head -n 1 Dockerfile | cut -d " " -f 2)
+    echo $name
+}
+
+function build_image() {
+    dir=$1
+    cd ${TRAVIS_BUILD_DIR}/dockerfiles/${dir}
+
+    if [[ ! -f "Dockerfile" ]]; then
+        echo "No Dockerfile in $(pwd)"
+        exit 1
+    fi
+
+    image_name=$(_get_dockerfile_image_name)
+
+    docker build -t $image_name .
+    echo $image_name >> ${TRAVIS_BUILD_DIR}/build/images.out
+}
+
+function build_images() {
+    cd ${TRAVIS_BUILD_DIR}/dockerfiles
+    dirs=($(ls -d */ | sort))
+    for i in "${dirs[@]}"
+    do
+	    build_image $i
+    done
+}
+
+function push_images() {
+    images=($(cat ${TRAVIS_BUILD_DIR}/build/images.out))
+    for i in "${images[@]}"
+    do
+        docker push $i
+    done
+}
+
+function docker_login() {
+    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+}
